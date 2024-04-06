@@ -42,5 +42,14 @@ namespace WebsiteBanTraSua.Repositories
             _context.Products.Remove(product);
             await _context.SaveChangesAsync();
         }
+        public IEnumerable<Product> SearchProducts(string searchTerm)
+        {
+            // Truy vấn các sản phẩm có tên chứa searchTerm từ cơ sở dữ liệu
+            return _context.Products.Where(p => p.Name.Contains(searchTerm)).ToList();
+        }
+        public IEnumerable<Product> GetAllProducts()
+        {
+            return _context.Products.ToList();
+        }
     }
 }

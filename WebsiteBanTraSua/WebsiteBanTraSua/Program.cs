@@ -3,6 +3,7 @@ using WebsiteBanTraSua.DataAccess;
 using WebsiteBanTraSua.Repositories;
 using Microsoft.AspNetCore.Identity;
 using WebsiteBanTraSua.Models;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -66,6 +67,6 @@ app.MapRazorPages();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Product}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

@@ -19,9 +19,13 @@ namespace WebsiteBanTraSua.Controllers
         // Hiển thị danh sách sản phẩm
         public async Task<IActionResult> Index()
         {
+
+
             var products = await _productRepository.GetAllAsync();
             return View(products);
+
         }
+
 
         // Hiển thị form thêm sản phẩm mới
         public async Task<IActionResult> Create()
@@ -121,5 +125,38 @@ namespace WebsiteBanTraSua.Controllers
             await _productRepository.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
+         public IActionResult Search()
+        {
+            return View(); // Trả về view cho giao diện tìm kiếm
+        }
+        [HttpPost]
+        public IActionResult Search(string searchTerm)
+        {
+            // Gọi phương thức tìm kiếm từ repository
+            IEnumerable<Product> searchResults = _productRepository.SearchProducts(searchTerm);
+
+            // Trả về view với kết quả tìm kiếm
+            return View("SearchResults", searchResults);
+        }
+        public async Task<IActionResult> SortByName()
+        {
+            var sortedProducts = await _productRepository.GetAllAsync();
+            sortedProducts = sortedProducts.OrderBy(p => p.Name);
+            return View("Index", sortedProducts);
+        }
+
+        public async Task<IActionResult> SortByPriceAsc()
+        {
+            var sortedProducts = await _productRepository.GetAllAsync();
+            sortedProducts = sortedProducts.OrderBy(p => p.Price);
+            return View("Index", sortedProducts);
+        }
+        public async Task<IActionResult> SortByPriceDesc()
+        {
+            var sortedProducts = await _productRepository.GetAllAsync();
+            sortedProducts = sortedProducts.OrderByDescending(p => p.Price);
+            return View("Index", sortedProducts);
+        }
+
     }
 }

@@ -5,11 +5,14 @@ namespace WebsiteBanTraSua.Repositories
 {
     public interface IProductRepository
     {
+        IEnumerable<Product> SearchProducts(string searchTerm);
         Task<IEnumerable<Product>> GetAllAsync();
         Task<Product> GetByIdAsync(int id);
         Task AddAsync(Product product);
         Task UpdateAsync(Product product);
         Task DeleteAsync(int id);
+        IEnumerable<Product> GetAllProducts();
+
     }
 
 }

@@ -1,21 +1,7 @@
 ﻿@model IEnumerable<WebsiteBanTraSua.Models.Product>
 
-@{
-    ViewData["Title"] = "Index";
-}
+<h2>Search Results</h2>
 
-<h1>Website Bán Trà Sữa</h1>
-
-<p>
-    <a asp-action="Create">Thêm sản phẩm</a>
-</p>
-<p>
-    @Html.ActionLink("Sắp xếp theo Tên", "SortByName", "Product")
-    |
-    @Html.ActionLink("Sắp xếp theo Giá (tăng dần)", "SortByPriceAsc", "Product")
-    |
-    @Html.ActionLink("Sắp xếp theo Giá (giảm dần)", "SortByPriceDesc", "Product")
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -28,8 +14,8 @@
             <th>
                 @Html.DisplayName("Hình ảnh sản phẩm")
             </th>
-@*             <th>
-                @Html.DisplayName("Loại đồ uống")
+            @*             <th>
+            @Html.DisplayName("Loại đồ uống")
             </th> *@
             <th></th>
         </tr>
@@ -51,8 +37,8 @@
                     }
                 </td>
                 @*<td>
-                    @Html.DisplayFor(modelItem => item.Category.Name)
-                </td> *@
+            @Html.DisplayFor(modelItem => item.Category.Name)
+            </td> *@
                 <td>
                     <form asp-controller="ShoppingCart" asp-action="AddToCart" method="post">
                         <input type="hidden" name="productId" value="@item.Id" />
@@ -62,12 +48,9 @@
                     </form>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> 
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 </td>
             </tr>
 
         }
-        
-   
-    </tbody>
-</table>
+       
