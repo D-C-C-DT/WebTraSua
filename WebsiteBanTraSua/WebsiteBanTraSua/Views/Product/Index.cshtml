@@ -7,16 +7,16 @@
 <h1>Website Bán Trà Sữa</h1>
 
 <p>
-    <a asp-action="Create">Thêm sản phẩm</a>
+    <a asp-action="Create"><i class="bi bi-file-earmark-plus-fill display-4"></i></a>
 </p>
 <p>
-    @Html.ActionLink("Sắp xếp theo Tên", "SortByName", "Product")
+    <a asp-action="SortByName"><i class="bi bi-sort-alpha-up display-4"></i></a>
     |
-    @Html.ActionLink("Sắp xếp theo Giá (tăng dần)", "SortByPriceAsc", "Product")
+    <a asp-action="SortByPriceAsc"><i class="bi bi-sort-up display-4"></i></a>
     |
-    @Html.ActionLink("Sắp xếp theo Giá (giảm dần)", "SortByPriceDesc", "Product")
+    <a asp-action="SortByPriceDesc"><i class="bi bi-sort-up-alt display-4"></i></a>
 </p>
-<table class="table">
+<table class="table table-hover --bs-info-border-subtle">
     <thead>
         <tr>
             <th>
@@ -60,9 +60,9 @@
                         <input type="number" id="quantity" name="quantity" value="1" min="1" />
                         <button class="btn btn-info" type="submit">Thêm vào giỏ hàng</button>
                     </form>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> 
+                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-arrow-bar-up display-3" ></i></a> |
+                    <a asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-view-list display-3"></i></a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-archive-fill display-3"></i></a>
                 </td>
             </tr>
 

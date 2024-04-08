@@ -2,34 +2,31 @@
 
 <h2>Danh sách Category</h2>
 
-<style>
-    th, td {
-        padding: 8px; /* Điều chỉnh khoảng trắng theo ý muốn */
-    }
-</style>
 
-<table>
+<p>
+    <a asp-action="Create"><i class="bi bi-file-earmark-plus-fill display-4"></i></a>
+</p>
+
+<table class="table display-4">
     <thead>
         <tr>
-            
-            <th>Tên</th>
-            <!-- Các cột khác tùy theo nhu cầu -->
+            <th>ID</th>
+            <th>Name</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var category in Model)
+        @foreach (var item in Model)
         {
             <tr>
-                
-                <td>@category.Name</td> 
-                <!-- Các cột khác tùy theo nhu cầu -->
+                <td>@item.Id</td>
+                <td>@item.Name</td>
                 <td>
-                    <a asp-action="Create" class="btn btn-primary">Add</a>
-                    <a asp-action="Edit" asp-route-id="@category.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@category.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@category.Id">Delete</a>
+                   <a asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-arrow-bar-up display-3" ></i></a> |
+                    <a asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-view-list display-3"></i></a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-archive-fill display-3"></i></a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
+<a asp-controller="product" asp-action="Index" class="btn btn-secondary">Back to view</a>

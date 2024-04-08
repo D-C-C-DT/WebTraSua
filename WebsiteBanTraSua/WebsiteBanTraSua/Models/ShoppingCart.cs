@@ -1,5 +1,4 @@
-﻿
-namespace WebsiteBanTraSua.Models
+﻿namespace WebsiteBanTraSua.Models
 {
     public class ShoppingCart
     {
@@ -20,11 +19,6 @@ namespace WebsiteBanTraSua.Models
         public void RemoveItem(int productId)
         {
             Items.RemoveAll(i => i.ProductId == productId);
-        }
-
-        internal void RemoveItem(CartItem item)
-        {
-            throw new NotImplementedException();
         }
     }
 }

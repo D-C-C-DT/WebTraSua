@@ -158,20 +158,5 @@ namespace WebsiteBanTraSua.Controllers
             return View("Index", sortedProducts);
         }
 
-        [HttpPost]
-public async Task<IActionResult> Like(int id)
-{
-    var product = await _productRepository.GetByIdAsync(id);
-    if (product == null)
-    {
-        return NotFound();
-    }
-
-    product.Likes++;
-    await _productRepository.UpdateAsync(product);
-
-    return Ok();
-}
-        
     }
 }

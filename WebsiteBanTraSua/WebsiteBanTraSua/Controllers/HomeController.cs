@@ -19,6 +19,15 @@ namespace WebsiteBanTraSua.Controllers
             var products = await _productRepository.GetAllAsync(); // L?y danh sách s?n ph?m t? Repository
             return View(products); // Truy?n danh sách s?n ph?m vào View
         }
+        public async Task<IActionResult> Details(int id)
+        {
+            var product = await _productRepository.GetByIdAsync(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return View(product);
+        }
 
         public IActionResult Privacy()
         {
