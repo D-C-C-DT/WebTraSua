@@ -11,7 +11,7 @@
 <table>
     <thead>
         <tr>
-            <th>ID</th>
+            
             <th>Tên</th>
             <!-- Các cột khác tùy theo nhu cầu -->
         </tr>
@@ -20,10 +20,11 @@
         @foreach (var category in Model)
         {
             <tr>
-                <td>@category.Id</td>
+                
                 <td>@category.Name</td> 
                 <!-- Các cột khác tùy theo nhu cầu -->
                 <td>
+                    <a asp-action="Create" class="btn btn-primary">Add</a>
                     <a asp-action="Edit" asp-route-id="@category.Id">Edit</a> |
                     <a asp-action="Details" asp-route-id="@category.Id">Details</a> |
                     <a asp-action="Delete" asp-route-id="@category.Id">Delete</a>

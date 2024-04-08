@@ -104,5 +104,6 @@ namespace WebsiteBanTraSua.Controllers
             await _categoryRepository.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
         }
+
     }
 }
