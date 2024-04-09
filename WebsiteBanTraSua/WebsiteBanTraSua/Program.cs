@@ -58,12 +58,12 @@ app.MapRazorPages();
 
 /*app.MapRazorPages();*/
 
-/*app.UseEndpoints(endpoints =>
+app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllerRoute(
         name: "areas",
-        pattern: "{area=exists}/{controllrt=Home}/{id?}");
-});*/
+        pattern: "{area:exists}/{controller=ProductManager}/{action=Index}/{id?}");
+});
 
 app.MapControllerRoute(
     name: "default",

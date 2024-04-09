@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using WebsiteBanTraSua.Models;
 using WebsiteBanTraSua.Repositories;
 
@@ -157,6 +158,26 @@ namespace WebsiteBanTraSua.Controllers
             sortedProducts = sortedProducts.OrderByDescending(p => p.Price);
             return View("Index", sortedProducts);
         }
+        [HttpPost]
+        public async Task<IActionResult> Like(int id)
+        {
+            var product = await _productRepository.GetByIdAsync(id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            product.Likes++;
+            await _productRepository.UpdateAsync(product);
+
+            return Ok();
+        }
 
     }
 }
+  
+
+
+
+    
+
