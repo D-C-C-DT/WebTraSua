@@ -1,17 +1,17 @@
 ﻿@model IEnumerable<WebsiteBanTraSua.Models.Category>
 
-<h2>Danh sách Category</h2>
-
+<h2>Danh sách Danh mục</h2>
 
 <p>
-    <a asp-action="Create"><i class="bi bi-file-earmark-plus-fill display-4"></i></a>
+    <a asp-action="Create"><i class="bi bi-file-earmark-plus-fill display-4"></i> Thêm mới</a>
 </p>
 
 <table class="table display-4">
     <thead>
         <tr>
             <th>ID</th>
-            <th>Name</th>
+            <th>Tên</th>
+            <th>Hành động</th>
         </tr>
     </thead>
     <tbody>
@@ -21,12 +21,12 @@
                 <td>@item.Id</td>
                 <td>@item.Name</td>
                 <td>
-                   <a asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-arrow-bar-up display-3" ></i></a> |
-                    <a asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-view-list display-3"></i></a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-archive-fill display-3"></i></a>
+                   <a asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-arrow-bar-up display-3"></i> Chỉnh sửa</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id"><i class="bi bi-view-list display-3"></i> Chi tiết</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-archive-fill display-3"></i> Xóa</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
-<a asp-controller="product" asp-action="Index" class="btn btn-secondary">Back to view</a>
+<a asp-controller="product" asp-action="Index" class="btn btn-secondary">Quay lại</a>

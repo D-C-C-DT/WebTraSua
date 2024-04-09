@@ -1,63 +1,62 @@
 ﻿@model Order
 @{
-    ViewData["Title"] = "Checkout";
+    ViewData["Title"] = "Thanh Toán";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="container">
     <div class="row">
         <div class="col-md-8 order-md-1">
-            <h4 class="mb-3">Billing address</h4>
+            <h4 class="mb-3">Địa chỉ thanh toán</h4>
             <form class="needs-validation" method="post">
 
                 <div class="mb-3">
-                    <label for="email">Email <span class="text-muted">(Optional)</span></label>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                    <label for="email">Email <span class="text-muted">(Tùy chọn)</span></label>
+                    <input type="email" class="form-control" id="email" placeholder="ban@example.com">
                     <div class="invalid-feedback">
-                        Please enter a valid email address for shipping updates.
+                        Vui lòng nhập một địa chỉ email hợp lệ để nhận cập nhật vận chuyển.
                     </div>
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="@Model.ShippingAddress">Address</label>
-                    <input type="text" class="form-control" asp-for="@Model.ShippingAddress" placeholder="1234 Main St" required>
+                    <label asp-for="@Model.ShippingAddress">Địa chỉ</label>
+                    <input type="text" class="form-control" asp-for="@Model.ShippingAddress" placeholder="1234 Đường Chính" required>
                     <div class="invalid-feedback">
-                        Please enter your shipping address.
+                        Vui lòng nhập địa chỉ giao hàng của bạn.
                     </div>
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="@Model.Notes">Notes</label>
+                    <label asp-for="@Model.Notes">Ghi chú</label>
                     <textarea type="text" class="form-control" asp-for="@Model.Notes" placeholder="" required onscroll="true" rows="3"></textarea>
                     <div class="invalid-feedback">
-                        Please enter your shipping address.
+                        Vui lòng nhập địa chỉ giao hàng của bạn.
                     </div>
                 </div>
 
                 <hr class="mb-4">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input">
-                    <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
+                    <label class="custom-control-label" for="same-address">Địa chỉ giao hàng giống như địa chỉ thanh toán của tôi</label>
                 </div>
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input">
-                    <label class="custom-control-label" for="save-info">Save this information for next time</label>
+                    <label class="custom-control-label" for="save-info">Lưu thông tin này cho lần sau</label>
                 </div>
                 <hr class="mb-4">
 
-                <h4 class="mb-3">Payment</h4>
+                <h4 class="mb-3">Thanh toán</h4>
 
                 <div class="d-block my-3">
 
                     <div class="custom-control custom-radio">
                         <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-                        <label class="custom-control-label" for="paypal">Ship COD</label>
+                        <label class="custom-control-label" for="paypal">Giao hàng COD</label>
                     </div>
                 </div>
                 <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Tiếp tục thanh toán</button>
             </form>
         </div>
     </div>
 </div>
-

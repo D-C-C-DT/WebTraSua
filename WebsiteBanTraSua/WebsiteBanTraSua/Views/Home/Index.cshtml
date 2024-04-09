@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<WebsiteBanTraSua.Models.Product>
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Trang Chủ";
 }
 
 <div class="container">
@@ -11,19 +11,19 @@
             <div class="col-lg-3 col-md-6 mb-2">
             <div class="col-12 p-1" style="border:1px solid #008cba; border-radius: 5px;">
                 <div class="card">
-                        <img src="@product.ImageUrl" class="card-img-top" alt="Product Image">
+                        <img src="@product.ImageUrl" class="card-img-top" alt="Hình ảnh Sản phẩm">
                     <div class="card-body" style="height: 200px">
                         <div class="pl-1">
                                 <p class="card-title h5 text-primary">@product.Name</p>
                                 <p class="card-title text-secondary">@product.Price</p>
                         </div>
                         <div class="pl-1">
-                                <p>Price: <strike>@product.Price.ToString("0.00")</strike></p>
+                                <p>Giá: <strike>@product.Price.ToString("0.00")</strike></p>
                         </div>
                     </div>
                 </div>
                 <div>
-                        <a asp-controller="Home" asp-action="Detail" class="btn btn-primary font-control" asp-route-id="@product.Id">Detail</a>
+                        <a asp-controller="Home" asp-action="Detail" class="btn btn-primary font-control" asp-route-id="@product.Id">Chi tiết</a>
                 </div>
             </div>
         </div>
